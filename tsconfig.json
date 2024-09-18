@@ -1,0 +1,12 @@
+{
+  "strict": true,
+  "files": ["eslint.config.js"],
+  "include": [".storybook/**/*"],
+  "compilerOptions" : {
+    "strictNullChecks": true,
+  },
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+}
