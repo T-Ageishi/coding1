@@ -1,1 +1,2 @@
-@import './app.css';
+@import "ress/dist/ress.min.css";
+@import "./app.css";
