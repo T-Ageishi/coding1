@@ -9,14 +9,18 @@ import styles from "./styles.module.css";
 export const Checkbox: FC<Props> = ({ id, name, label, value }) => {
   return (
     <>
-      <input
-        type="checkbox"
-        id={id}
-        name={name}
-        className={styles["checkbox"]}
-        value={value}
-      />
-      <Label htmlFor={id}>{label}</Label>
+      <Label>
+        <span className={styles["checkboxContainer"]}>
+          <input
+            type="checkbox"
+            id={id}
+            name={name}
+            className={styles["checkbox"]}
+            value={value}
+          />
+        </span>
+        <span>{label}</span>
+      </Label>
     </>
   );
 };

@@ -1,4 +1,5 @@
 .style {
   color: var(--md-sys-color-on-surface);
   vertical-align: middle;
+  cursor: pointer;
 }
