@@ -1,9 +1,10 @@
 {
-  "strict": true,
   "files": ["eslint.config.js"],
   "include": [".storybook/**/*"],
   "compilerOptions" : {
+    "strict": true,
     "strictNullChecks": true,
+    "jsx": "react"
   },
   "references": [
     { "path": "./tsconfig.app.json" },

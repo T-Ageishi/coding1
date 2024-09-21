@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="./../src/index.css" />
+<script>
+  (function () {
+    window.parent.document.addEventListener(
+      "click",
+      (e) => {
+        const button = e.target.closest("button");
+        if (!button) return;
+
+        const id = button.getAttribute("id");
+        const canvasBody = document.querySelector("body");
+        if (id === "list-item-light") {
+          canvasBody.classList.add("light");
+          canvasBody.classList.remove("dark");
+        } else if (id === "list-item-dark") {
+          canvasBody.classList.remove("light");
+          canvasBody.classList.add("dark");
+        }
+      },
+      true
+    );
+  })();
+</script>
