@@ -1,5 +1,6 @@
-function App() {
-	return <></>;
-}
+import { Main } from "./components/pages/main/main.tsx";
+import { FC } from "react";
 
-export default App;
+export const App: FC = () => {
+  return <Main />;
+};
