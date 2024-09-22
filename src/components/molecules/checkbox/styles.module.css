@@ -1,6 +1,7 @@
 .horizontal {
   display: flex;
   column-gap: 8px;
+  flex-wrap: wrap;
 }
 
 .checkboxContainer {
