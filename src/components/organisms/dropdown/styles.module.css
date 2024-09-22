@@ -5,6 +5,7 @@
   padding: 16px;
   border-radius: 4px;
   cursor: pointer;
+  border: 1px solid var(--md-sys-color-outline);
 
   &.active {
     background-color: var(--md-sys-color-surface-container);
