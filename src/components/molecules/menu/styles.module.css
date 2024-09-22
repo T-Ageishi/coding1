@@ -2,10 +2,12 @@
   border-radius: 4px;
   box-shadow: 0 0 5px 0 var(--md-sys-color-shadow);
   padding: 8px 0;
+  display: none;
 
   animation-fill-mode: forwards;
   animation-duration: 100ms;
   &.open {
+    display: block;
     animation-name: open;
   }
   &.close {
@@ -58,21 +60,24 @@
 
 @keyframes open {
   from {
+    display: none;
     opacity: 0;
   }
 
   to {
+    display: block;
     opacity: 1;
   }
 }
 
 @keyframes close {
   from {
+    display: block;
     opacity: 1;
   }
 
   to {
-    opacity: 0;
     display: none;
+    opacity: 0;
   }
 }
