@@ -3,7 +3,7 @@ import { FC, MouseEventHandler, useCallback, useEffect, useState } from "react";
 import { Props } from "./types.ts";
 import { Icon } from "../../atoms/icon/icon.tsx";
 import styles from "./styles.module.css";
-import { useMenu } from "../menu/menu.tsx";
+import { useMenu } from "../../molecules/menu/menu.tsx";
 
 /**
  * ドロップダウン
