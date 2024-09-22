@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { useCheckboxes } from "./checkbox.tsx";
+import { useCheckboxes } from "./checkboxes.tsx";
 
 const meta: Meta = {};
 export default meta;
