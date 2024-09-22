@@ -1,6 +1,5 @@
 import { FC, MouseEventHandler, useCallback, useState } from "react";
 import { Props } from "./types.ts";
-import { Icon } from "../../atoms/icon/icon.tsx";
 import styles from "./styles.module.css";
 
 /**
@@ -11,8 +10,8 @@ export const useMenu = (props: Omit<Props, "onClick" | "isOpen">) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const onClickItem: MouseEventHandler<HTMLLIElement> = useCallback((e) => {
-    e.stopPropagation();
     setSelected(e.currentTarget.dataset.value);
+    setIsOpen(false);
   }, []);
 
   const renderMenu = () => (
@@ -45,11 +44,6 @@ const Menu: FC<Props> = ({ settings, isOpen, selected, onClick }) => {
             data-value={setting.value}
             onClick={onClick}
           >
-            {setting.icon ? (
-              <Icon icon={setting.icon} />
-            ) : isSelected ? (
-              <Icon icon={"check"} />
-            ) : null}
             <div className={styles["label-wrapper"]}>
               <span className={styles["label"]}>{setting.label}</span>
             </div>

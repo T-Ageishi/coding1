@@ -1,6 +1,7 @@
 .container {
   border-radius: 4px;
   box-shadow: 0 0 5px 0 var(--md-sys-color-shadow);
+  padding: 8px 0;
 
   animation-fill-mode: forwards;
   animation-duration: 100ms;
@@ -18,7 +19,6 @@
   cursor: pointer;
   position: relative;
   z-index: 2;
-  background-color: var(--md-sys-color-surface-container-low);
   display: flex;
   column-gap: 8px;
   align-items: center;
@@ -34,16 +34,6 @@
   pointer-events: none;
   transition-duration: 100ms;
   z-index: -1;
-}
-
-.item:first-child,
-.item:first-child::before {
-  border-radius: 4px 4px 0 0;
-}
-
-.item:last-child,
-.item:last-child::before {
-  border-radius: 4px 4px 0 0;
 }
 
 .item:hover::before {
@@ -83,5 +73,6 @@
 
   to {
     opacity: 0;
+    display: none;
   }
 }
