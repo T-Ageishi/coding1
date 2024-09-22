@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { FC, MouseEventHandler, useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { Props } from "./types.ts";
 import { Icon } from "../../atoms/icon/icon.tsx";
 import styles from "./styles.module.css";
@@ -10,17 +11,21 @@ import { useMenu } from "../../molecules/menu/menu.tsx";
  */
 export const Dropdown: FC<Props> = ({ selected, settings }) => {
   const [isActive, setIsActive] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
   const {
     selected: selectedInMenu,
     renderMenu,
     setIsOpen,
-  } = useMenu({ selected, settings });
+  } = useMenu({ selected, settings, anchorEl });
 
   //Dropdownをクリックしたときの処理
   const onDropdownClick: MouseEventHandler<HTMLDivElement> = useCallback(
     (e) => {
       e.stopPropagation();
+      if (!anchorEl) {
+        setAnchorEl(e.currentTarget);
+      }
       setIsActive(true);
       setIsOpen(true);
     },
@@ -53,7 +58,7 @@ export const Dropdown: FC<Props> = ({ selected, settings }) => {
         </div>
         <Icon icon={"arrow_drop_down"} className={styles["icon"]} />
       </div>
-      {renderMenu()}
+      {createPortal(renderMenu(), document.body)}
     </>
   );
 };
