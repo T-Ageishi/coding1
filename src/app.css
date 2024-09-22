@@ -103,3 +103,19 @@
   --md-sys-color-surface-container-high: rgb(42 41 47);
   --md-sys-color-surface-container-highest: rgb(53 52 58);
 }
+
+html {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
