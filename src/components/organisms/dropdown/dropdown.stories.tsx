@@ -21,14 +21,4 @@ export const Default: Story = {
       },
     ],
   },
-  decorators: [
-    (Story) => {
-      return (
-        <>
-          <Story />
-          <div>文字列</div>
-        </>
-      );
-    },
-  ],
 };
