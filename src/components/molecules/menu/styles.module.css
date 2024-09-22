@@ -3,6 +3,9 @@
   box-shadow: 0 0 5px 0 var(--md-sys-color-shadow);
   padding: 8px 0;
   display: none;
+  position: absolute;
+  z-index: 10;
+  background-color: var(--md-sys-color-surface-container-lowest);
 
   animation-fill-mode: forwards;
   animation-duration: 100ms;
@@ -33,7 +36,6 @@
   height: 100%;
   top: 0;
   left: 0;
-  pointer-events: none;
   transition-duration: 100ms;
   z-index: -1;
 }

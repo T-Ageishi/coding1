@@ -4,6 +4,7 @@ export type Props = {
   selected: string | undefined;
   isOpen: boolean;
   settings: Setting[];
+  anchorEl?: HTMLElement | null;
   onClick: MouseEventHandler<HTMLLIElement>;
 };
 
