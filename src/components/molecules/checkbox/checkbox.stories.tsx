@@ -1,18 +1,22 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { useCheckboxes } from "./checkbox.tsx";
 
-import { Checkbox } from "./checkbox.tsx";
-
-const meta: Meta<typeof Checkbox> = {
-  component: Checkbox,
-};
-
+const meta: Meta = {};
 export default meta;
-type Story = StoryObj<typeof Checkbox>;
 
+type Story = StoryObj;
 export const Default: Story = {
-  args: {
-    id: "sample_checkbox",
-    name: "sample_checkbox",
-    label: "Sample Checkbox",
-  },
+  args: {},
+  decorators: [
+    () => {
+      const { renderCheckboxes } = useCheckboxes([
+        { label: "Sample Checkbox", value: "1" },
+        { label: "北海道", value: "2" },
+        { label: "青森", value: "3" },
+        { label: "秋田", value: "4" },
+        { label: "岩手", value: "5" },
+      ]);
+      return renderCheckboxes();
+    },
+  ],
 };
