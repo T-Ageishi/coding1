@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="./../src/index.css" />
 <script>
   (function () {
+    //ボタンで通常表示とダークモードを切り替えたときの調整
     window.parent.document.addEventListener(
       "click",
       (e) => {
@@ -19,5 +20,22 @@
       },
       true
     );
+
+    //iframeがリロードされたときの調整
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        const canvasBody = document.querySelector("body");
+        if (
+          getComputedStyle(canvasBody).getPropertyValue("background-color") ===
+          "rgba(0, 0, 0, 0)"
+        ) {
+          canvasBody.classList.remove("light");
+          canvasBody.classList.add("dark");
+        } else {
+          canvasBody.classList.add("light");
+          canvasBody.classList.remove("dark");
+        }
+      }, 1000);
+    });
   })();
 </script>

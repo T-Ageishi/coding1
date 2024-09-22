@@ -5,8 +5,8 @@ const preview: Preview = {
     backgrounds: {
       default: "light",
       values: [
-        { name: "light", value: "rgb(252 248 255)" },
-        { name: "dark", value: "rgb(19 19 24)" },
+        { name: "light", value: "rgb(255 255 255)" },
+        { name: "dark", value: "rgb(14 14 19)" },
       ],
     },
     controls: {
