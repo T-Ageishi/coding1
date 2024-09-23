@@ -8,23 +8,20 @@ import { Setting } from "../components/molecules/dropdown/types.ts";
 export default async function Page() {
   //都道府県一覧
   const rawPrefectures: Prefectures = await fetchPrefectures();
-  const prefectures = rawPrefectures.map((p) => ({
+  const checkboxSetting = rawPrefectures.map((p) => ({
     label: p.prefName,
     value: String(p.prefCode),
   }));
 
-  //人口構成
-  const populationCompositionTypes: Setting[] = [
-    { key: "0", "data-value": "0", label: "総人口" },
-    { key: "1", "data-value": "1", label: "年少人口" },
-    { key: "2", "data-value": "2", label: "生産年齢人口" },
-    { key: "3", "data-value": "3", label: "老年人口" },
+  //グラフのタイプ
+  const dropdownSetting: Setting[] = [
+    { key: "0", "data-value": "0", label: "総人口推移" },
+    { key: "1", "data-value": "1", label: "年少人口推移" },
+    { key: "2", "data-value": "2", label: "生産年齢人口推移" },
+    { key: "3", "data-value": "3", label: "老年人口推移" },
   ];
 
   return (
-    <Main
-      prefectures={prefectures}
-      populationCompositionTypes={populationCompositionTypes}
-    />
+    <Main checkboxSetting={checkboxSetting} dropdownSetting={dropdownSetting} />
   );
 }

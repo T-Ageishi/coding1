@@ -10,15 +10,15 @@ import { Setting } from "../../molecules/dropdown/types.ts";
  * メインのページ
  */
 export const Main: FC<{
-  prefectures: Props[];
-  populationCompositionTypes: Setting[];
-}> = ({ prefectures, populationCompositionTypes }) => {
-  const { RenderCheckboxes } = useCheckboxes(prefectures);
+  checkboxSetting: Props[];
+  dropdownSetting: Setting[];
+}> = ({ checkboxSetting, dropdownSetting }) => {
+  const { RenderCheckboxes } = useCheckboxes(checkboxSetting);
   const { RenderDropdown } = useDropdown("0");
 
   return (
     <>
-      <RenderDropdown settings={populationCompositionTypes} />
+      <RenderDropdown settings={dropdownSetting} />
       <RenderCheckboxes />
     </>
   );
