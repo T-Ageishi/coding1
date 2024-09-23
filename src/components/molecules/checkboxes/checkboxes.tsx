@@ -1,3 +1,5 @@
+"use client";
+
 import React, { FC, useState, ChangeEvent } from "react";
 import { CheckList, Props, PropsCollection } from "./types.ts";
 import { Label } from "../../atoms/label/label.tsx";
@@ -8,7 +10,7 @@ import styles from "./styles.module.css";
  */
 export const useCheckboxes = (
   propsCollection: Props[]
-): { checkList: CheckList; renderCheckboxes: () => React.JSX.Element } => {
+): { checkList: CheckList; RenderCheckboxes: FC } => {
   const initialState: CheckList = {};
   propsCollection.forEach((prop) => (initialState[prop.value] = false));
 
@@ -22,7 +24,7 @@ export const useCheckboxes = (
     });
   };
 
-  const renderCheckboxes = () => (
+  const RenderCheckboxes = () => (
     <Checkboxes
       propsCollection={propsCollection}
       onChange={handleCheckChange}
@@ -30,7 +32,7 @@ export const useCheckboxes = (
     />
   );
 
-  return { checkList, renderCheckboxes };
+  return { checkList, RenderCheckboxes };
 };
 
 /**

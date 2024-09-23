@@ -1,9 +1,18 @@
+"use client";
+
 import { FC } from "react";
-import { MainTemplate } from "../../templates/main/main_template.tsx";
+import { useCheckboxes } from "../../molecules/checkboxes/checkboxes.tsx";
+import { Props } from "../../molecules/checkboxes/types.ts";
 
 /**
- * ページ
+ * メインのページ
  */
-export const Main: FC = () => {
-  return <MainTemplate>{<h1>メインページ</h1>}</MainTemplate>;
+export const Main: FC<{ prefectures: Props[] }> = ({ prefectures }) => {
+  const { RenderCheckboxes } = useCheckboxes(prefectures);
+
+  return (
+    <>
+      <RenderCheckboxes />
+    </>
+  );
 };

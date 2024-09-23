@@ -1,3 +1,5 @@
+"use client";
+
 import { FC, useEffect, useRef, useState } from "react";
 import { Props, UseMenu } from "./types.ts";
 import styles from "./styles.module.css";
