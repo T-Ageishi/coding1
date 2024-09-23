@@ -5,6 +5,7 @@ import { useDropdown } from "../../molecules/dropdown/dropdown.tsx";
 import { useCheckboxes } from "../../molecules/checkboxes/checkboxes.tsx";
 import { Props } from "../../molecules/checkboxes/types.ts";
 import { Setting } from "../../molecules/dropdown/types.ts";
+import { MainTemplate } from "../../templates/main/main_template.tsx";
 
 /**
  * メインのページ
@@ -17,9 +18,11 @@ export const Main: FC<{
   const { RenderDropdown } = useDropdown("0");
 
   return (
-    <>
-      <RenderDropdown settings={dropdownSetting} />
-      <RenderCheckboxes />
-    </>
+    <MainTemplate>
+      <>
+        <RenderDropdown settings={dropdownSetting} />
+        <RenderCheckboxes />
+      </>
+    </MainTemplate>
   );
 };
