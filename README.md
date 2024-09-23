@@ -6,7 +6,7 @@
 
 ## フレームワーク
 
-- React
+- [Next.js](https://nextjs.org/)
 
 ## リンタ
 
