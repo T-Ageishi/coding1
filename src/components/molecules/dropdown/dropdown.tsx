@@ -1,3 +1,5 @@
+"use client";
+
 /* eslint-disable react-hooks/exhaustive-deps */
 import { FC, MouseEventHandler, useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
@@ -30,13 +32,14 @@ export const useDropdown: UseDropdown = (defaultValue: string | undefined) => {
 const Dropdown: FC<Props> = ({ settings, value, setValue }) => {
   const [isActive, setIsActive] = useState(false);
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+  const [menuContainer, setMenuContainer] = useState<HTMLElement | null>(null);
 
   const { RenderMenu, setIsOpen } = useMenu();
 
   //Dropdownをクリックしたときの処理
   const onDropdownClick: MouseEventHandler<HTMLDivElement> = useCallback(
     (e) => {
-      e.stopPropagation();
+      e.nativeEvent.stopImmediatePropagation();
       if (!anchorEl) {
         setAnchorEl(e.currentTarget);
       }
@@ -65,7 +68,8 @@ const Dropdown: FC<Props> = ({ settings, value, setValue }) => {
   //初期化処理
   useEffect(() => {
     document.addEventListener("click", onBackdropClick);
-  }, [onBackdropClick]);
+    setMenuContainer(document.body);
+  }, []);
 
   return (
     <>
@@ -81,18 +85,20 @@ const Dropdown: FC<Props> = ({ settings, value, setValue }) => {
         <Icon icon={"arrow_drop_down"} className={styles["icon"]} />
       </div>
 
-      {createPortal(
-        <RenderMenu anchorEl={anchorEl}>
-          <List
-            listItemPropsCollection={settings.map((setting) => ({
-              ...setting,
-              selected: setting.key === value,
-              onClick: onListItemClick,
-            }))}
-          />
-        </RenderMenu>,
-        document.body
-      )}
+      {menuContainer
+        ? createPortal(
+            <RenderMenu anchorEl={anchorEl}>
+              <List
+                listItemPropsCollection={settings.map((setting) => ({
+                  ...setting,
+                  selected: setting.key === value,
+                  onClick: onListItemClick,
+                }))}
+              />
+            </RenderMenu>,
+            menuContainer
+          )
+        : null}
     </>
   );
 };

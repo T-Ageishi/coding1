@@ -11,13 +11,7 @@
     background-color: var(--md-sys-color-surface-container);
 
     .icon {
-      animation-name: open;
-    }
-  }
-
-  &.inactive {
-    .icon {
-      animation-name: close;
+      rotate: 180deg;
     }
   }
 }
@@ -34,28 +28,5 @@
 }
 
 .icon {
-  animation-duration: 200ms;
-  animation-fill-mode: forwards;
-}
-
-/*メニューを開くときにアイコンを回転させるアニメーション*/
-@keyframes open {
-  from {
-    rotate: 0deg;
-  }
-
-  to {
-    rotate: 180deg;
-  }
-}
-
-/*メニューを閉じるときにアイコンを回転させるアニメーション*/
-@keyframes close {
-  from {
-    rotate: 180deg;
-  }
-
-  to {
-    rotate: 0deg;
-  }
+  transition-duration: 200ms;
 }
