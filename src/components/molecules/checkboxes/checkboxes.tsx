@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC, useState, ChangeEvent } from "react";
+import React, { FC, useState, ChangeEvent, memo } from "react";
 import { CheckList, Props, PropsCollection } from "./types.ts";
 import { Label } from "../../atoms/label/label.tsx";
 import styles from "./styles.module.css";
@@ -38,29 +38,27 @@ export const useCheckboxes = (
 /**
  * チェックボックスUI本体
  */
-const Checkboxes: FC<PropsCollection> = ({
-  propsCollection,
-  checkList,
-  onChange,
-}) => {
-  return (
-    <ul className={styles["horizontal"]}>
-      {propsCollection.map((props) => (
-        <li key={props.value}>
-          <Label>
-            <span className={styles["checkboxContainer"]}>
-              <input
-                type="checkbox"
-                className={styles["checkbox"]}
-                value={props.value}
-                checked={checkList[props.value]}
-                onChange={onChange}
-              />
-            </span>
-            <span>{props.label}</span>
-          </Label>
-        </li>
-      ))}
-    </ul>
-  );
-};
+const Checkboxes: FC<PropsCollection> = memo(
+  ({ propsCollection, checkList, onChange }) => {
+    return (
+      <ul className={styles["horizontal"]}>
+        {propsCollection.map((props) => (
+          <li key={props.value}>
+            <Label>
+              <span className={styles["checkboxContainer"]}>
+                <input
+                  type="checkbox"
+                  className={styles["checkbox"]}
+                  value={props.value}
+                  checked={checkList[props.value]}
+                  onChange={onChange}
+                />
+              </span>
+              <span>{props.label}</span>
+            </Label>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+);
