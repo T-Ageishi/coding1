@@ -1,7 +1,7 @@
 "use client";
 
 import { FC, useEffect, useRef, useState } from "react";
-import { Props, UseMenu } from "./types.ts";
+import { MenuProps, UseMenu } from "./types.ts";
 import styles from "./styles.module.css";
 
 /**
@@ -10,7 +10,10 @@ import styles from "./styles.module.css";
  */
 export const useMenu: UseMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const RenderMenu: FC<Omit<Props, "isOpen">> = ({ children, ...props }) => (
+  const RenderMenu: FC<Omit<MenuProps, "isOpen">> = ({
+    children,
+    ...props
+  }) => (
     <Menu {...props} isOpen={isOpen}>
       {children}
     </Menu>
@@ -22,7 +25,11 @@ export const useMenu: UseMenu = () => {
 /**
  * メニューコンポーネント本体
  */
-const Menu: FC<Props> = ({ isOpen, anchorEl = document.body, children }) => {
+const Menu: FC<MenuProps> = ({
+  isOpen,
+  anchorEl = document.body,
+  children,
+}) => {
   const ref = useRef<HTMLDivElement>(null);
 
   //表示位置・サイズを調整

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FC, useState, ChangeEvent, memo } from "react";
-import { CheckList, Props, PropsCollection } from "./types.ts";
+import { CheckList, CheckboxProps, PropsCollection } from "./types.ts";
 import { Label } from "../../atoms/label/label.tsx";
 import styles from "./styles.module.css";
 
@@ -9,7 +9,7 @@ import styles from "./styles.module.css";
  * チェックボックス（Render hooks）
  */
 export const useCheckboxes = (
-  propsCollection: Props[]
+  propsCollection: CheckboxProps[]
 ): { checkList: CheckList; RenderCheckboxes: FC } => {
   const initialState: CheckList = {};
   propsCollection.forEach((prop) => (initialState[prop.value] = false));

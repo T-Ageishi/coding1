@@ -1,13 +1,13 @@
 import { FC } from "react";
 
-export type Props = {
+export type DropdownProps = {
   value?: string | undefined;
   setValue: (value: string | undefined) => void;
   settings: Setting[];
 };
 
 export type UseDropdown = (defaultValue: string | undefined) => {
-  RenderDropdown: FC<Omit<Props, "value" | "setValue">>;
+  RenderDropdown: FC<Omit<DropdownProps, "value" | "setValue">>;
   value: string | undefined;
 };
 

@@ -1,6 +1,6 @@
 import { ChangeEventHandler, ComponentPropsWithoutRef } from "react";
 
-export type Props = ComponentPropsWithoutRef<"input"> & {
+export type CheckboxProps = ComponentPropsWithoutRef<"input"> & {
   label: string;
   value: string;
 };
@@ -10,7 +10,7 @@ export type CheckList = {
 };
 
 export type PropsCollection = {
-  propsCollection: Array<Props>;
+  propsCollection: Array<CheckboxProps>;
   onChange: ChangeEventHandler<HTMLInputElement>;
   checkList: CheckList;
 };

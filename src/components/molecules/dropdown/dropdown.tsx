@@ -3,7 +3,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { FC, MouseEventHandler, useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { Props, UseDropdown } from "./types.ts";
+import { DropdownProps, UseDropdown } from "./types.ts";
 import { Icon } from "../../atoms/icon/icon.tsx";
 import styles from "./styles.module.css";
 import { useMenu } from "../../atoms/menu/menu.tsx";
@@ -15,7 +15,9 @@ import { List } from "../../atoms/list/list.tsx";
 export const useDropdown: UseDropdown = (defaultValue: string | undefined) => {
   const [value, setValue] = useState(defaultValue);
 
-  const RenderDropdown: FC<Omit<Props, "value" | "setValue">> = (props) => {
+  const RenderDropdown: FC<Omit<DropdownProps, "value" | "setValue">> = (
+    props
+  ) => {
     return (
       <>
         <Dropdown {...props} value={value} setValue={setValue} />
@@ -29,7 +31,7 @@ export const useDropdown: UseDropdown = (defaultValue: string | undefined) => {
 /**
  * ドロップダウン本体
  */
-const Dropdown: FC<Props> = ({ settings, value, setValue }) => {
+const Dropdown: FC<DropdownProps> = ({ settings, value, setValue }) => {
   const [isActive, setIsActive] = useState(false);
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const [menuContainer, setMenuContainer] = useState<HTMLElement | null>(null);

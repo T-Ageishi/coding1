@@ -1,11 +1,11 @@
 import { FC } from "react";
 import * as Recharts from "recharts";
-import { Props } from "./types.ts";
+import { LineChartProps } from "./types.ts";
 
 /**
  * 折れ線グラフ
  */
-export const LineChart: FC<Props> = ({
+export const LineChart: FC<LineChartProps> = ({
   dataCollection,
   xAxisProps,
   linePropsCollection,
