@@ -48,10 +48,10 @@
   --md-sys-color-surface-dim: rgb(220 216 224);
   --md-sys-color-surface-bright: rgb(252 248 255);
   --md-sys-color-surface-container-lowest: rgb(255 255 255);
-  --md-sys-color-surface-container-low: rgb(246 242 250 / 50%);
-  --md-sys-color-surface-container: rgb(240 236 244 / 50%);
-  --md-sys-color-surface-container-high: rgb(234 231 239 / 50%);
-  --md-sys-color-surface-container-highest: rgb(229 225 233 / 50%);
+  --md-sys-color-surface-container-low: rgb(246 242 250);
+  --md-sys-color-surface-container: rgb(240 236 244);
+  --md-sys-color-surface-container-high: rgb(234 231 239);
+  --md-sys-color-surface-container-highest: rgb(229 225 233);
 }
 
 /*ダークモード使用時のテーマ*/

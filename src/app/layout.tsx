@@ -15,7 +15,7 @@ const notoSansJP = Noto_Sans_JP({
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ja">
-      <body className={notoSansJP.className}>
+      <body className={`${notoSansJP.className} light`}>
         <div id="root">{children}</div>
       </body>
     </html>

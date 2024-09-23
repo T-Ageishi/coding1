@@ -5,7 +5,7 @@
   display: none;
   position: absolute;
   z-index: 10;
-  background-color: var(--md-sys-color-surface-container-low);
+  background-color: var(--md-sys-color-surface-container-lowest);
 
   animation-fill-mode: forwards;
   animation-duration: 100ms;
