@@ -11,7 +11,7 @@ export type UseDropdown = (defaultValue: string | undefined) => {
   value: string | undefined;
 };
 
-type Setting = {
+export type Setting = {
   key: string;
   "data-value": string;
   label: string;
