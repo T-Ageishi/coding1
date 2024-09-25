@@ -3,6 +3,7 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { MenuProps, UseMenu } from "./types.ts";
 import styles from "./styles.module.css";
+import { createPortal } from "react-dom";
 
 /**
  * メニュー（Render hooks）
@@ -28,6 +29,7 @@ export const useMenu: UseMenu = () => {
 const Menu: FC<MenuProps> = ({
   isOpen,
   anchorEl = document.body,
+  containerEl = document.body,
   children,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -45,12 +47,13 @@ const Menu: FC<MenuProps> = ({
     ref.current.style.width = `${width}px`;
   }, [anchorEl]);
 
-  return (
+  return createPortal(
     <div
       ref={ref}
       className={`${styles["container"]} ${isOpen ? styles["open"] : styles["close"]}`}
     >
       {children}
-    </div>
+    </div>,
+    containerEl
   );
 };

@@ -3,6 +3,7 @@ import { Dispatch, FC, ReactNode } from "react";
 export type MenuProps = {
   isOpen: boolean;
   anchorEl?: HTMLElement | null;
+  containerEl?: HTMLElement;
   children: ReactNode;
 };
 

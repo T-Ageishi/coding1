@@ -2,7 +2,6 @@
 
 /* eslint-disable react-hooks/exhaustive-deps */
 import { FC, MouseEventHandler, useCallback, useEffect, useState } from "react";
-import { createPortal } from "react-dom";
 import { DropdownProps, UseDropdown } from "./types.ts";
 import { Icon } from "../../atoms/icon/icon.tsx";
 import styles from "./styles.module.css";
@@ -34,7 +33,6 @@ export const useDropdown: UseDropdown = (defaultValue: string | undefined) => {
 const Dropdown: FC<DropdownProps> = ({ settings, value, setValue }) => {
   const [isActive, setIsActive] = useState(false);
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-  const [menuContainer, setMenuContainer] = useState<HTMLElement | null>(null);
 
   const { RenderMenu, setIsOpen } = useMenu();
 
@@ -70,7 +68,6 @@ const Dropdown: FC<DropdownProps> = ({ settings, value, setValue }) => {
   //初期化処理
   useEffect(() => {
     document.addEventListener("click", onBackdropClick);
-    setMenuContainer(document.body);
   }, []);
 
   return (
@@ -87,20 +84,15 @@ const Dropdown: FC<DropdownProps> = ({ settings, value, setValue }) => {
         <Icon icon={"arrow_drop_down"} className={styles["icon"]} />
       </div>
 
-      {menuContainer
-        ? createPortal(
-            <RenderMenu anchorEl={anchorEl}>
-              <List
-                listItemPropsCollection={settings.map((setting) => ({
-                  ...setting,
-                  selected: setting.key === value,
-                  onClick: onListItemClick,
-                }))}
-              />
-            </RenderMenu>,
-            menuContainer
-          )
-        : null}
+      <RenderMenu anchorEl={anchorEl}>
+        <List
+          listItemPropsCollection={settings.map((setting) => ({
+            ...setting,
+            selected: setting.key === value,
+            onClick: onListItemClick,
+          }))}
+        />
+      </RenderMenu>
     </>
   );
 };
